@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
-
+from Utils import get_paths,get_inter_pos_frames
+import numpy as np
 # 定义生成器
 class Generator(nn.Module):
     def __init__(self, input_size, output_size):
@@ -45,45 +46,41 @@ D = Discriminator(output_size)
 criterion = nn.BCELoss()
 G_optimizer = torch.optim.Adam(G.parameters(), lr=0.0002)
 D_optimizer = torch.optim.Adam(D.parameters(), lr=0.0002)
+print(get_paths('Data/'))
+slice1,slice2 = get_inter_pos_frames(get_paths('Data')[0],get_paths('Data')[1])
+slice1_pos = slice1['Position']
+def wrap(position_set,scale=0.03):
+    position_set += np.random.normal(0,scale,size=position_set.shape)
 
-# 训练网络
-# for epoch in range(num_epochs):
-#     for i in range(len(data) // batch_size):
-#         # 训练判别器
-#         D.zero_grad()
-#         real_data = data[i * batch_size:(i + 1) * batch_size]
-#         real_labels = torch.ones(batch_size, 1)
-#         fake_data = G(torch.randn(batch_size, input_size))
-#         fake_labels = torch.zeros(batch_size, 1)
-#
-#         real_outputs = D(real_data)
-#         real_loss = criterion(real_outputs, real_labels)
-#
-#         fake_outputs = D(fake_data.detach())
-#         fake_loss = criterion(fake_outputs, fake_labels)
-#
-#         D_loss = real_loss + fake_loss
-#         D_loss.backward()
-#         D_optimizer.step()
-#
-#         # 训练生成器
-#         G.zero_grad()
-#         fake_outputs_GAN = D(fake_data)
-#         G_loss_GAN = criterion(fake_outputs_GAN, real_labels)
-#
-#         G_loss_GAN.backward()
-#         G_optimizer.step()
-#
-random_input = torch.randn(1, 100)
+def wrapframe(slice,scale=0.03):
+    for i in range(len(slice)):
+        wrap(slice1[i],scale)
+#训练网络
+for epoch in range(num_epochs):
+    for i in range(30):
+        # 训练判别器
+        D.zero_grad()
+        real_data = wrapframe(slice1_pos,0.03) + slice1_pos
+        fake_data = wrapframe(slice1_pos,0.3) + slice1_pos
 
-# 初始化网络和优化器
-G = Generator(input_size, output_size)
-D = Discriminator(output_size)
-G_optimizer = torch.optim.Adam(G.parameters(), lr=0.0002)
-D_optimizer = torch.optim.Adam(D.parameters(), lr=0.0002)
+        real_outputs = D(real_data)
+        real_loss = -np.log(real_outputs)
 
-# 生成数据
-fake_data = G(random_input)
+        fake_outputs = D(fake_data)
+        fake_loss = -np.log(1-fake_outputs)
+
+        D_loss = real_loss + fake_loss
+        D_loss.backward()
+        D_optimizer.step()
+
+        # 训练生成器
+        # G.zero_grad()
+        # fake_outputs_GAN = D(fake_data)
+        # G_loss_GAN = criterion(fake_outputs_GAN, real_labels)
+        #
+        # G_loss_GAN.backward()
+        # G_optimizer.step()
+
 
 # 输出结果
 print(fake_data)

@@ -86,20 +86,20 @@ def rotate_coordinates(coordinates, angle):
     rotated_coordinates = np.dot(coordinates, rotation_matrix)    
     return rotated_coordinates
 
-def get_pos_frames(slic):
+def get_pos_frames(slic,threhold=0.3):
     xy,gene = sort_xy_fea(slic.obsm['spatial'],ann2feaMat(slic))
     gene_li = [item for item in gene]
     #sorted_pos_fea = [split_by_y(rotate_coordinates(xy,angle/10),gene_li) for angle in range(-30,30)]
-    sorted_pos_fea = [split_by_threhold(rotate_coordinates(xy,angle/10),gene_li,0.3) for angle in range(-30,30)]
+    sorted_pos_fea = [split_by_threhold(rotate_coordinates(xy,angle/10),gene_li,threhold) for angle in range(-30,30)]
     distribution = [item[0] for item in sorted_pos_fea]
     pos,frames = sorted_pos_fea[np.argmin([len(item) for item in distribution])]
     return {'Position':pos,'Gene_features':frames}
 
-def get_inter_pos_frames(slice1_path,slice2_path):
+def get_inter_pos_frames(slice1_path,slice2_path,threhold=0.1):
     slice1 = ad.read_h5ad(slice1_path)
     slice2 = ad.read_h5ad(slice2_path)
     interIndex = intersect(slice1.var.index,slice2.var.index)
     slice1 = slice1[:,interIndex]
     slice2 = slice2[:,interIndex]
-    return [get_pos_frames(slice1),get_pos_frames(slice2)]
+    return [get_pos_frames(slice1,threhold),get_pos_frames(slice2,threhold)]
     

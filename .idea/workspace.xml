@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1292128b-b553-418b-9579-3c5f6576edad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Transcriptomics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Transcriptomics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/.ipynb_checkpoints/main-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/.ipynb_checkpoints/main-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/Utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCode/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
