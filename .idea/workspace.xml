@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1292128b-b553-418b-9579-3c5f6576edad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697116555.FanLdeMacBook-Air.local.2875.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697116686.FanLdeMacBook-Air.local.2906.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697117281.FanLdeMacBook-Air.local.2985.0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCode/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
