@@ -6,39 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1292128b-b553-418b-9579-3c5f6576edad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Draw.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/Draw.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Overview.png" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/Overview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697185382.FanLdeMacBook-Air.local.8784.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697186172.FanLdeMacBook-Air.local.9023.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697186206.FanLdeMacBook-Air.local.9041.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697186355.FanLdeMacBook-Air.local.9098.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697186399.FanLdeMacBook-Air.local.9114.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697186568.FanLdeMacBook-Air.local.9191.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191028.FanLdeMacBook-Air.local.10214.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191063.FanLdeMacBook-Air.local.10264.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191212.FanLdeMacBook-Air.local.10374.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191310.FanLdeMacBook-Air.local.10416.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191367.FanLdeMacBook-Air.local.10432.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191417.FanLdeMacBook-Air.local.10442.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191526.FanLdeMacBook-Air.local.10479.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191574.FanLdeMacBook-Air.local.10497.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191612.FanLdeMacBook-Air.local.10514.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191651.FanLdeMacBook-Air.local.10526.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191692.FanLdeMacBook-Air.local.10555.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191744.FanLdeMacBook-Air.local.10589.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697191770.FanLdeMacBook-Air.local.10609.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697192073.FanLdeMacBook-Air.local.10768.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697192444.FanLdeMacBook-Air.local.10978.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697192468.FanLdeMacBook-Air.local.10995.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697192960.FanLdeMacBook-Air.local.11285.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697193316.FanLdeMacBook-Air.local.11507.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697193557.FanLdeMacBook-Air.local.11664.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Run/events.out.tfevents.1697193623.FanLdeMacBook-Air.local.11691.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Utils.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/Utils.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/main.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Method/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Method/Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Method/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Method/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +61,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Method" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Method/model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,14 +128,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/test.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/Utils.py</url>
-          <line>129</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/Method/model.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

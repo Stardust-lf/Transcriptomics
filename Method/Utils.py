@@ -114,6 +114,8 @@ def wrapping_simu(slice_mat):
     X = slice_mat[:,0]
     Y = slice_mat[:,1]
 
+    def sigmoid(x):
+        return 1 / (1 + np.exp(-x))
     def transform_points(X, Y, center, threshold, scale, ellipse_ratio):
         # Calculate the distance of each point to the center
         distance = np.sqrt((X - center[0]) ** 2 + (Y - center[1]) ** 2 / ellipse_ratio ** 2)
@@ -125,8 +127,9 @@ def wrapping_simu(slice_mat):
         Y[mask] = Y[mask] + scale * weights * (Y[mask] - center[1])
 
         # Calculate the evaluation index P
-        P = scale / ellipse_ratio
-
+        P = scale / np.abs(1-ellipse_ratio)
+        P *= 2.5 #Rescale mean of P to 0.5
+        P = sigmoid(max(0, min(1, P)))
         return X, Y, P
 
     num_transformations = np.random.randint(3, 8)

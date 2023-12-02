@@ -11,13 +11,12 @@ import pickle
 toTensor = lambda x: torch.tensor(x,dtype=torch.float32)
 toArray = lambda x: np.array(x,dtype=np.float32)
 toFlatten = lambda x: toArray(list(itertools.chain(*x)))
-# 定义超参数
+
 input_size = 16616
 output_size = 1
 BATCH_SIZE = 16
-NUM_EPOCHS = 100
+NUM_EPOCHS = 10
 
-# 定义生成器
 class Generator(nn.Module):
     def __init__(self, output_size):
         super(Generator, self).__init__()
@@ -54,7 +53,6 @@ class Discriminator(nn.Module):
         return x
 
 
-print(get_paths('Data/'))
 slice1,slice2 = get_inter_pos_frames(get_paths('Data')[0],get_paths('Data')[1])
 slice1_pos = slice1['Position']
 slice2_pos = slice2['Position']
@@ -66,8 +64,6 @@ slice2_pos = copy.deepcopy(slice2['Position'])
 values = [slice1_pos[0][i] for i in range(len(slice1_pos[0])) if scale[0][0]<= slice1_pos[0][i][0] <= scale[0][1]]
 filled_pos1 = []
 filled_pos2 = []
-print(len(slice1_pos))
-print(len(slice2_pos))
 for n in range(len(slice1_pos)):
     leng1 = len(slice1_pos[n])
     leng2 = len(slice2_pos[n])
@@ -86,10 +82,8 @@ cutted_pos2 = toTensor(toFlatten(slice2_pos))
 
 def wrapframe(slice_):
     slice_,score = wrapping_simu(slice_)
-    print(score)
     return slice_,score
 def flatten_list_set(list_set):
-    print(len(list_set))
     result = []
     for item in list_set:
         result+=item
@@ -107,20 +101,20 @@ G = Generator(np.size(toFlatten(slice1_pos)))
 D = Discriminator(np.size(toFlatten(slice1_pos)))
 # criterion = nn.BCELoss()
 G_optimizer = torch.optim.Adam(G.parameters(), lr=0.001)
-D_optimizer = torch.optim.Adam(D.parameters(), lr=0.001)
+D_optimizer = torch.optim.Adam(D.parameters(), lr=0.03)
 
 #训练网络
-writer = SummaryWriter(log_dir='Run/')
-history = []
+#writer = SummaryWriter(log_dir='Run/')
+#history = []
+lossD = []
 lossG = []
 for epoch in range(NUM_EPOCHS):
     print('-----------------------------------EPOCH{}-----------------------------------'.format(epoch))
-    for i in range(10):
+    for i in range(5):
         D.zero_grad()
         samples_and_scores = [generate_single_sample(cutted_pos1) for i in range(BATCH_SIZE)]
 
         samples, scores = zip(*samples_and_scores)
-        print(scores)
         scores = toTensor(scores)
         slice_wrapped = toTensor([toFlatten(sample) for sample in samples]).reshape(BATCH_SIZE, -1)
         slice_true = toTensor(cutted_pos1).reshape(-1).repeat(BATCH_SIZE,1)
@@ -130,34 +124,37 @@ for epoch in range(NUM_EPOCHS):
         outputs = D(D_input)
 
         loss = torch.mean(torch.abs(scores-outputs))
-        writer.add_scalar('Loss D', loss, i)
-        history.append(loss.detach().numpy())
-        print('D Loss{}'.format(loss))
+        lossD_num = loss.detach().numpy()
+        print('D Loss',lossD_num)
+        lossD.append(lossD_num)
+        #writer.add_scalar('Loss D', loss, i)
+        #history.append(loss.detach().numpy())
+        #print('D Loss{}'.format(loss))
         loss.backward()
         D_optimizer.step()
 
 
-    for _ in range(30):
+    for _ in range(1):
         G.zero_grad()
         fake_flow_GAN = G(toTensor(cutted_pos2).reshape(1,-1))
         G_loss_GAN = D(torch.concatenate([toTensor(cutted_pos1).reshape(1,-1), fake_flow_GAN], dim=1))
-        writer.add_scalar('Loss G', G_loss_GAN, i)
-        fig,ax = plt.subplots(figsize=(6,6),dpi=150)
-        print(cutted_pos2.shape)
-        print(fake_flow_GAN.shape)
-        fake_slice = (cutted_pos2 + fake_flow_GAN.reshape(-1,2)).detach().numpy()
-        print(fake_slice.shape)
-        ax.scatter(x=fake_slice[:,0],y=fake_slice[:,1],s=3)
-        #plt.show()
-        writer.add_figure('my_image',fig,i)
-        print('Generator Loss',G_loss_GAN)
+        #writer.add_scalar('Loss G', G_loss_GAN, i)
+        #fig,ax = plt.subplots(figsize=(6,6),dpi=150)
+        # fake_slice = (cutted_pos2 + fake_flow_GAN.reshape(-1,2)).detach().numpy()
+        # plt.scatter(x=fake_slice[:,0],y=fake_slice[:,1],s=3)
+        # plt.show()
+        #writer.add_figure('my_image',fig,i)
+        print('G Loss',G_loss_GAN)
         lossG.append(G_loss_GAN.detach().numpy())
         G_loss_GAN.backward()
         G_optimizer.step()
-        f = open('G_loss','wb')
-    pickle.dump(toArray(lossG), f)
-    f.close()
-    writer.close()
+plt.plot(lossD)
+plt.plot(lossG)
+plt.show()
+# f = open('G_loss','wb')
+# pickle.dump(toArray(lossG), f)
+# f.close()
+#writer.close()
 
 # 输出结果
 #print(fake_data)
