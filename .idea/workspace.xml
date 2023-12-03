@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1292128b-b553-418b-9579-3c5f6576edad" name="Changes" comment="">
+    <list default="true" id="1292128b-b553-418b-9579-3c5f6576edad" name="Changes" comment="Update D_loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Method/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Method/Utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Method/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Method/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +51,28 @@
       <recent name="$PROJECT_DIR$/TestCode" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.model">
+  <component name="RunManager" selected="Python.DrawHistory">
+    <configuration name="DrawHistory" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Transcriptomics" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Method" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Method/DrawHistory.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Transcriptomics" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DrawHistory" />
         <item itemvalue="Python.model" />
         <item itemvalue="Python.test" />
       </list>
@@ -111,6 +132,15 @@
       <option name="presentableId" value="Default" />
       <updated>1696839571439</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update D_loss">
+      <option name="closed" value="true" />
+      <created>1701547748313</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701547748313</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,15 +154,28 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update D_loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update D_loss" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Method/model.py</url>
-          <line>125</line>
-          <option name="timeStamp" value="9" />
+          <line>162</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="slice_true" />
+        <watch expression="slice_true" language="Python" />
+        <watch expression="flows" />
+        <watch expression="cutted_pos1" />
+        <watch expression="fake_flow_GAN" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
